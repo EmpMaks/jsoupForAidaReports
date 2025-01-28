@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileManipulationsService {
-    public List<String> getFilesNames() {
+    public static List<String> getFilesNames() {
         ArrayList<String> filesNamesList = new ArrayList<>();
         File folder = new File("src/main/resources/");
         File[] listOfFiles = folder.listFiles();

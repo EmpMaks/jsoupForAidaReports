@@ -8,10 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ComputerPropertiesParser {
-    public String parseOsName() {
+    public static String parseOsName(String computer) {
 
         try {
-            Document document = Jsoup.parse(new File("src/main/resources/Бахматович(юрист) Вера.htm"));
+            Document document = Jsoup.parse(new File(computer));
             Elements divHeader = document.select("td:contains(Название ОС)");
             return divHeader.get(0).nextElementSibling().text();
 
