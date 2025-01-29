@@ -28,4 +28,9 @@ public class ComputerPropertiesParser {
         Elements divHeader = document.select("td:contains(Системная плата)");
         return divHeader.get(1).nextElementSibling().text();
     }
+
+    public String parseRAMSlotsAmount () {
+        Elements divHeader = document.select("td:contains(Разъёмы ОЗУ)");
+        return divHeader.size()!=0?divHeader.get(0).nextElementSibling().text():"";
+    }
 }

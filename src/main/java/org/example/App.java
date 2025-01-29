@@ -21,7 +21,8 @@ public class App {
                 computerPropertiesParser = new ComputerPropertiesParser(computer);
                 stringForCsv.append(computerPropertiesParser.parseOsName()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseCPU()).append(";");
-                stringForCsv.append(computerPropertiesParser.parseMotherboard()).append(";\n");
+                stringForCsv.append(computerPropertiesParser.parseMotherboard()).append(";");
+                stringForCsv.append(computerPropertiesParser.parseRAMSlotsAmount()).append(";\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
