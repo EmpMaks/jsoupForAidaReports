@@ -16,10 +16,17 @@ public class App {
         StringBuilder stringForCsv = new StringBuilder();
         for (String fileName : computersList) {
             String computer = "src/main/resources/" + fileName;
-            stringForCsv.append(ComputerPropertiesParser.parseOsName(computer)).append(";\n");
+            ComputerPropertiesParser computerPropertiesParser = null;
+            try {
+                computerPropertiesParser = new ComputerPropertiesParser(computer);
+                stringForCsv.append(computerPropertiesParser.parseOsName()).append(";");
+                stringForCsv.append(computerPropertiesParser.parseCPU()).append(";\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         try {
-            Files.write(Paths.get("C:\\Users\\Maks\\Desktop\\jsoup\\jsoup\\jsoup\\src\\main\\output\\output.csv"),
+            Files.write(Paths.get("C:\\Users\\Maks\\IdeaProjects\\GITjsoup\\src\\main\\output\\output.csv"),
                     stringForCsv.toString().getBytes(), StandardOpenOption.APPEND);
         }catch (IOException e) {
             e.printStackTrace();

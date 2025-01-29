@@ -8,16 +8,19 @@ import java.io.File;
 import java.io.IOException;
 
 public class ComputerPropertiesParser {
-    public static String parseOsName(String computer) {
+    private Document document;
 
-        try {
-            Document document = Jsoup.parse(new File(computer));
-            Elements divHeader = document.select("td:contains(Название ОС)");
-            return divHeader.get(0).nextElementSibling().text();
+    public ComputerPropertiesParser(String computer) throws IOException {
+        document = Jsoup.parse(new File(computer));
+    }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
+    public String parseOsName() {
+        Elements divHeader = document.select("td:contains(Название ОС)");
+        return divHeader.get(0).nextElementSibling().text();
+    }
+
+    public String parseCPU() {
+        Elements divHeader = document.select("td:contains(Тип ЦП)");
+        return divHeader.get(0).nextElementSibling().text();
     }
 }
