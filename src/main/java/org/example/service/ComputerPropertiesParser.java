@@ -23,4 +23,9 @@ public class ComputerPropertiesParser {
         Elements divHeader = document.select("td:contains(Тип ЦП)");
         return divHeader.get(0).nextElementSibling().text();
     }
+
+    public String parseMotherboard() {
+        Elements divHeader = document.select("td:contains(Системная плата)");
+        return divHeader.get(1).nextElementSibling().text();
+    }
 }
