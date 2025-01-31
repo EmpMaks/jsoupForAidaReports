@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.File;
@@ -37,5 +38,16 @@ public class ComputerPropertiesParser {
     public String parseRAMVolume() {
         Elements divHeader = document.select("td:contains(Системная память)");
         return divHeader.size() != 0 ? divHeader.get(0).nextElementSibling().text() : "";
+    }
+
+//    public String parseRAMSticks() {
+//        return Integer.toString(document.select("td:contains(Имя модуля)").size());
+//    }
+
+    public String parseGPU() {
+        Elements divHeader = document.select("td:contains(Дисплей:)");
+        Element element = divHeader.parents().get(0).nextElementSibling();
+        Elements adapter = element.select("td:contains(Видеоадаптер)");
+        return adapter.get(0).nextElementSibling().text();
     }
 }

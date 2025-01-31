@@ -23,7 +23,8 @@ public class App {
                 stringForCsv.append(computerPropertiesParser.parseCPU()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseMotherboard()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseRAMSlotsAmount()).append(";");
-                stringForCsv.append(computerPropertiesParser.parseRAMVolume()).append(";\n");
+                stringForCsv.append(computerPropertiesParser.parseRAMVolume()).append(";");
+                stringForCsv.append(computerPropertiesParser.parseGPU()).append(";\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
