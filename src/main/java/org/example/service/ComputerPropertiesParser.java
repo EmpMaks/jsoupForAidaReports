@@ -50,4 +50,11 @@ public class ComputerPropertiesParser {
         Elements adapter = element.select("td:contains(Видеоадаптер)");
         return adapter.get(0).nextElementSibling().text();
     }
+
+    public String parseMonitor() {
+        Elements divHeader = document.select("td:contains(Дисплей:)");
+        Element element = divHeader.parents().get(0).nextElementSibling().nextElementSibling().nextElementSibling();
+        Elements adapter = element.select("td:contains(Монитор)");
+        return adapter.size() != 0 ? adapter.get(0).nextElementSibling().text() : "";
+    }
 }

@@ -19,12 +19,14 @@ public class App {
             ComputerPropertiesParser computerPropertiesParser = null;
             try {
                 computerPropertiesParser = new ComputerPropertiesParser(computer);
+                stringForCsv.append(fileName).append(";");
                 stringForCsv.append(computerPropertiesParser.parseOsName()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseCPU()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseMotherboard()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseRAMSlotsAmount()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseRAMVolume()).append(";");
-                stringForCsv.append(computerPropertiesParser.parseGPU()).append(";\n");
+                stringForCsv.append(computerPropertiesParser.parseGPU()).append(";");
+                stringForCsv.append(computerPropertiesParser.parseMonitor()).append(";\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -32,7 +34,7 @@ public class App {
         try {
             Files.write(Paths.get("C:\\Users\\Maks\\IdeaProjects\\GITjsoup\\src\\main\\output\\output.csv"),
                     stringForCsv.toString().getBytes(), StandardOpenOption.APPEND);
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
