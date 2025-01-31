@@ -22,7 +22,8 @@ public class App {
                 stringForCsv.append(computerPropertiesParser.parseOsName()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseCPU()).append(";");
                 stringForCsv.append(computerPropertiesParser.parseMotherboard()).append(";");
-                stringForCsv.append(computerPropertiesParser.parseRAMSlotsAmount()).append(";\n");
+                stringForCsv.append(computerPropertiesParser.parseRAMSlotsAmount()).append(";");
+                stringForCsv.append(computerPropertiesParser.parseRAMVolume()).append(";\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }

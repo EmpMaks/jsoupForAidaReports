@@ -29,8 +29,13 @@ public class ComputerPropertiesParser {
         return divHeader.get(1).nextElementSibling().text();
     }
 
-    public String parseRAMSlotsAmount () {
+    public String parseRAMSlotsAmount() {
         Elements divHeader = document.select("td:contains(Разъёмы ОЗУ)");
-        return divHeader.size()!=0?divHeader.get(0).nextElementSibling().text():"";
+        return divHeader.size() != 0 ? divHeader.get(0).nextElementSibling().text() : "";
+    }
+
+    public String parseRAMVolume() {
+        Elements divHeader = document.select("td:contains(Системная память)");
+        return divHeader.size() != 0 ? divHeader.get(0).nextElementSibling().text() : "";
     }
 }
